@@ -12,6 +12,7 @@
 		76564CBC1D71AC5200B0096C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76564CBA1D71AC5200B0096C /* Main.storyboard */; };
 		76564CBE1D71AC5200B0096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76564CBD1D71AC5200B0096C /* Assets.xcassets */; };
 		76564CC11D71AC5200B0096C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76564CBF1D71AC5200B0096C /* LaunchScreen.storyboard */; };
+		76564CCC1D71AC7000B0096C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CCB1D71AC7000B0096C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		76564CBD1D71AC5200B0096C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76564CC01D71AC5200B0096C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76564CC21D71AC5200B0096C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76564CCB1D71AC7000B0096C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,39 @@
 		76564CB51D71AC5200B0096C /* AppleExplore */ = {
 			isa = PBXGroup;
 			children = (
+				76564CCA1D71AC6500B0096C /* Cells */,
+				76564CC91D71AC6100B0096C /* Constants */,
 				76564CB61D71AC5200B0096C /* AppDelegate.swift */,
-				76564CB81D71AC5200B0096C /* ViewController.swift */,
+				76564CC81D71AC5C00B0096C /* Controllers */,
 				76564CBA1D71AC5200B0096C /* Main.storyboard */,
 				76564CBD1D71AC5200B0096C /* Assets.xcassets */,
 				76564CBF1D71AC5200B0096C /* LaunchScreen.storyboard */,
 				76564CC21D71AC5200B0096C /* Info.plist */,
 			);
 			path = AppleExplore;
+			sourceTree = "<group>";
+		};
+		76564CC81D71AC5C00B0096C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76564CB81D71AC5200B0096C /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		76564CC91D71AC6100B0096C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				76564CCB1D71AC7000B0096C /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		76564CCA1D71AC6500B0096C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +164,7 @@
 			files = (
 				76564CB91D71AC5200B0096C /* ViewController.swift in Sources */,
 				76564CB71D71AC5200B0096C /* AppDelegate.swift in Sources */,
+				76564CCC1D71AC7000B0096C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
