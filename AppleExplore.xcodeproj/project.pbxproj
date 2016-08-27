@@ -13,9 +13,18 @@
 		76564CBE1D71AC5200B0096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76564CBD1D71AC5200B0096C /* Assets.xcassets */; };
 		76564CC11D71AC5200B0096C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76564CBF1D71AC5200B0096C /* LaunchScreen.storyboard */; };
 		76564CCC1D71AC7000B0096C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CCB1D71AC7000B0096C /* Constants.swift */; };
+		76564CCF1D71B0F400B0096C /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CCD1D71B0F400B0096C /* ExploreTableViewCell.swift */; };
+		76564CD01D71B0F400B0096C /* ExploreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76564CCE1D71B0F400B0096C /* ExploreTableViewCell.xib */; };
+		76564CD31D71B3BC00B0096C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CD21D71B3BC00B0096C /* Api.swift */; };
+		76564CD61D71B6BE00B0096C /* ExploreCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CD51D71B6BE00B0096C /* ExploreCategory.swift */; };
+		76564CDB1D71BFFD00B0096C /* ExploreCategoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CDA1D71BFFD00B0096C /* ExploreCategoryFetcher.swift */; };
+		9A8A746A7D2DA1E3831611F5 /* Pods_AppleExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0060C31BEA40615588D95CE9 /* Pods_AppleExplore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0060C31BEA40615588D95CE9 /* Pods_AppleExplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleExplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		053A71AD8F5584C93FFE3C32 /* Pods-AppleExplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleExplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppleExplore/Pods-AppleExplore.release.xcconfig"; sourceTree = "<group>"; };
+		0CA8A109793A7474C195B703 /* Pods-AppleExplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleExplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleExplore/Pods-AppleExplore.debug.xcconfig"; sourceTree = "<group>"; };
 		76564CB31D71AC5200B0096C /* AppleExplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleExplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76564CB61D71AC5200B0096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76564CB81D71AC5200B0096C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,11 @@
 		76564CC01D71AC5200B0096C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76564CC21D71AC5200B0096C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76564CCB1D71AC7000B0096C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		76564CCD1D71B0F400B0096C /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		76564CCE1D71B0F400B0096C /* ExploreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreTableViewCell.xib; sourceTree = "<group>"; };
+		76564CD21D71B3BC00B0096C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		76564CD51D71B6BE00B0096C /* ExploreCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCategory.swift; sourceTree = "<group>"; };
+		76564CDA1D71BFFD00B0096C /* ExploreCategoryFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCategoryFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8A746A7D2DA1E3831611F5 /* Pods_AppleExplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16D1C582CD84D6AFBAD949F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0060C31BEA40615588D95CE9 /* Pods_AppleExplore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		76564CAA1D71AC5200B0096C = {
 			isa = PBXGroup;
 			children = (
 				76564CB51D71AC5200B0096C /* AppleExplore */,
 				76564CB41D71AC5200B0096C /* Products */,
+				D1E81445A61DD6E7D69F676E /* Pods */,
+				16D1C582CD84D6AFBAD949F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +81,8 @@
 		76564CB51D71AC5200B0096C /* AppleExplore */ = {
 			isa = PBXGroup;
 			children = (
+				76564CD41D71B5C900B0096C /* Models */,
+				76564CD11D71B3B000B0096C /* Network */,
 				76564CCA1D71AC6500B0096C /* Cells */,
 				76564CC91D71AC6100B0096C /* Constants */,
 				76564CB61D71AC5200B0096C /* AppDelegate.swift */,
@@ -87,8 +114,44 @@
 		76564CCA1D71AC6500B0096C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				76564CCD1D71B0F400B0096C /* ExploreTableViewCell.swift */,
+				76564CCE1D71B0F400B0096C /* ExploreTableViewCell.xib */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		76564CD11D71B3B000B0096C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				76564CD91D71BD4E00B0096C /* Services */,
+				76564CD21D71B3BC00B0096C /* Api.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		76564CD41D71B5C900B0096C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76564CD51D71B6BE00B0096C /* ExploreCategory.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		76564CD91D71BD4E00B0096C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				76564CDA1D71BFFD00B0096C /* ExploreCategoryFetcher.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		D1E81445A61DD6E7D69F676E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CA8A109793A7474C195B703 /* Pods-AppleExplore.debug.xcconfig */,
+				053A71AD8F5584C93FFE3C32 /* Pods-AppleExplore.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76564CC51D71AC5200B0096C /* Build configuration list for PBXNativeTarget "AppleExplore" */;
 			buildPhases = (
+				9CC64081B1718104C273F17B /* [CP] Check Pods Manifest.lock */,
 				76564CAF1D71AC5200B0096C /* Sources */,
 				76564CB01D71AC5200B0096C /* Frameworks */,
 				76564CB11D71AC5200B0096C /* Resources */,
+				9DAC5CFA83876F0BBD9C2D5D /* [CP] Embed Pods Frameworks */,
+				FF89EC5C4C3BD37500E20FB4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,10 +218,59 @@
 				76564CC11D71AC5200B0096C /* LaunchScreen.storyboard in Resources */,
 				76564CBE1D71AC5200B0096C /* Assets.xcassets in Resources */,
 				76564CBC1D71AC5200B0096C /* Main.storyboard in Resources */,
+				76564CD01D71B0F400B0096C /* ExploreTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9CC64081B1718104C273F17B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9DAC5CFA83876F0BBD9C2D5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppleExplore/Pods-AppleExplore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF89EC5C4C3BD37500E20FB4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppleExplore/Pods-AppleExplore-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76564CAF1D71AC5200B0096C /* Sources */ = {
@@ -163,8 +278,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				76564CB91D71AC5200B0096C /* ViewController.swift in Sources */,
+				76564CD61D71B6BE00B0096C /* ExploreCategory.swift in Sources */,
 				76564CB71D71AC5200B0096C /* AppDelegate.swift in Sources */,
+				76564CDB1D71BFFD00B0096C /* ExploreCategoryFetcher.swift in Sources */,
 				76564CCC1D71AC7000B0096C /* Constants.swift in Sources */,
+				76564CD31D71B3BC00B0096C /* Api.swift in Sources */,
+				76564CCF1D71B0F400B0096C /* ExploreTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +394,7 @@
 		};
 		76564CC61D71AC5200B0096C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA8A109793A7474C195B703 /* Pods-AppleExplore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppleExplore/Info.plist;
@@ -286,6 +406,7 @@
 		};
 		76564CC71D71AC5200B0096C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 053A71AD8F5584C93FFE3C32 /* Pods-AppleExplore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AppleExplore/Info.plist;
@@ -314,6 +435,7 @@
 				76564CC71D71AC5200B0096C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

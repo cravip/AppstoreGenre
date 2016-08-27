@@ -18,18 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw3-R0-LIt" userLabel="Container View">
-                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-dZ-bcl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-dZ-bcl">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-pf-OCx" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiM-EI-vgu" userLabel="Sliding Image View">
-                                                <rect key="frame" x="8" y="8" width="600" height="180"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SSj-IH-dRP">
-                                                <rect key="frame" x="8" y="196" width="600" height="180"/>
+                                                <rect key="frame" x="0.0" y="158" width="600" height="180"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FuH-MT-eTm">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -49,67 +49,52 @@
                                                 </cells>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lwk-sB-GwD">
-                                                <rect key="frame" x="8" y="384" width="600" height="420"/>
+                                                <rect key="frame" x="0.0" y="346" width="600" height="246"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="8Mw-DG-fGS"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kGI-dq-XWF"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="leading" secondItem="HBk-dZ-bcl" secondAttribute="leading" constant="8" id="6Hh-sE-EEQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Lwk-sB-GwD" secondAttribute="trailing" constant="8" id="7jC-Xq-QOu"/>
-                                            <constraint firstAttribute="bottom" secondItem="Lwk-sB-GwD" secondAttribute="bottom" constant="8" id="MFB-Xv-mcy"/>
-                                            <constraint firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" constant="8" id="Osv-tw-zBw"/>
-                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="top" secondItem="HBk-dZ-bcl" secondAttribute="top" constant="8" id="Vif-2D-d0T"/>
-                                            <constraint firstAttribute="trailing" secondItem="SSj-IH-dRP" secondAttribute="trailing" constant="8" id="XQV-2y-BGv"/>
-                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="top" secondItem="SSj-IH-dRP" secondAttribute="bottom" constant="8" id="dEP-Pt-0G7"/>
-                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="leading" secondItem="HBk-dZ-bcl" secondAttribute="leading" constant="8" id="hfN-tb-BM0"/>
-                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="leading" secondItem="HBk-dZ-bcl" secondAttribute="leading" constant="8" id="jeI-wM-gAN"/>
-                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="top" secondItem="HiM-EI-vgu" secondAttribute="bottom" constant="8" id="kK0-tg-hmQ"/>
+                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="0LW-Rf-R5q"/>
+                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="height" secondItem="KdJ-pf-OCx" secondAttribute="height" multiplier="0.3" id="6UK-Oq-KDS"/>
+                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="9db-eD-ZwX"/>
+                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="C9X-oD-29B"/>
+                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="top" secondItem="SSj-IH-dRP" secondAttribute="bottom" constant="8" id="GxY-79-7Pt"/>
+                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="height" secondItem="KdJ-pf-OCx" secondAttribute="height" multiplier="0.25" id="JKN-2G-Y7U"/>
+                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="top" secondItem="HiM-EI-vgu" secondAttribute="bottom" constant="8" id="LQV-iV-TNS"/>
+                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="leading" secondItem="KdJ-pf-OCx" secondAttribute="leading" id="PZq-CC-aVf"/>
+                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="Red-08-syk"/>
+                                            <constraint firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="WSn-km-dee"/>
+                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="top" secondItem="KdJ-pf-OCx" secondAttribute="top" id="t7e-Vs-kcu"/>
+                                            <constraint firstAttribute="bottom" secondItem="Lwk-sB-GwD" secondAttribute="bottom" constant="8" id="wG4-LV-SHk"/>
                                         </constraints>
-                                    </scrollView>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="HBk-dZ-bcl" secondAttribute="bottom" id="3og-bw-htU"/>
-                                    <constraint firstItem="HiM-EI-vgu" firstAttribute="height" secondItem="nw3-R0-LIt" secondAttribute="height" multiplier="0.3" id="6q6-oE-xot"/>
-                                    <constraint firstItem="HBk-dZ-bcl" firstAttribute="width" secondItem="nw3-R0-LIt" secondAttribute="width" id="7Ms-tS-W6D"/>
-                                    <constraint firstItem="HBk-dZ-bcl" firstAttribute="top" secondItem="nw3-R0-LIt" secondAttribute="top" id="LjJ-3g-Oua"/>
-                                    <constraint firstItem="SSj-IH-dRP" firstAttribute="height" secondItem="nw3-R0-LIt" secondAttribute="height" multiplier="0.3" id="OpZ-qb-WTi"/>
-                                    <constraint firstAttribute="trailing" secondItem="HBk-dZ-bcl" secondAttribute="trailing" id="R1V-96-AIC"/>
-                                    <constraint firstItem="HiM-EI-vgu" firstAttribute="width" secondItem="nw3-R0-LIt" secondAttribute="width" id="arZ-DX-wT6"/>
-                                    <constraint firstItem="Lwk-sB-GwD" firstAttribute="height" secondItem="nw3-R0-LIt" secondAttribute="height" multiplier="0.7" id="dFP-Wi-zfy"/>
-                                    <constraint firstItem="HBk-dZ-bcl" firstAttribute="leading" secondItem="nw3-R0-LIt" secondAttribute="leading" id="nuK-gc-nIg"/>
-                                    <constraint firstItem="HBk-dZ-bcl" firstAttribute="width" secondItem="nw3-R0-LIt" secondAttribute="width" id="xT5-wU-cvd"/>
+                                    <constraint firstItem="KdJ-pf-OCx" firstAttribute="top" secondItem="HBk-dZ-bcl" secondAttribute="top" id="Na1-hg-bVE"/>
+                                    <constraint firstAttribute="bottom" secondItem="KdJ-pf-OCx" secondAttribute="bottom" id="dC9-B8-rqK"/>
+                                    <constraint firstItem="KdJ-pf-OCx" firstAttribute="leading" secondItem="HBk-dZ-bcl" secondAttribute="leading" id="mDU-4e-ETc"/>
+                                    <constraint firstAttribute="trailing" secondItem="KdJ-pf-OCx" secondAttribute="trailing" id="thY-Fn-iTA"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="7Ms-tS-W6D"/>
-                                    </mask>
-                                </variation>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4QG-Ox-OuJ"/>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KW4-yM-saW"/>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="KnL-1L-y1r"/>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LnM-Kj-Rvp"/>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="OdP-AX-2YH"/>
-                            <constraint firstAttribute="trailing" secondItem="nw3-R0-LIt" secondAttribute="trailing" constant="8" id="fLv-x0-QXc"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nw3-R0-LIt" secondAttribute="bottom" constant="8" id="hoE-eF-XkH"/>
-                            <constraint firstItem="nw3-R0-LIt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="mb3-ri-hsb"/>
+                            <constraint firstItem="KdJ-pf-OCx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Wfi-57-qdp"/>
+                            <constraint firstAttribute="trailing" secondItem="HBk-dZ-bcl" secondAttribute="trailing" id="XoX-9z-gb5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HBk-dZ-bcl" secondAttribute="bottom" id="dF8-6H-bLg"/>
+                            <constraint firstItem="HBk-dZ-bcl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i6s-Bb-fi4"/>
+                            <constraint firstItem="KdJ-pf-OCx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="jEd-jC-Exf"/>
+                            <constraint firstItem="HBk-dZ-bcl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sHN-kQ-VQ9"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="OdP-AX-2YH"/>
-                                <exclude reference="fLv-x0-QXc"/>
-                                <exclude reference="mb3-ri-hsb"/>
-                                <exclude reference="hoE-eF-XkH"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="exploreCollectionView" destination="SSj-IH-dRP" id="6u6-QR-Chd"/>
-                        <outlet property="exploreTableView" destination="SSj-IH-dRP" id="jIr-Bo-Kew"/>
+                        <outlet property="exploreTableView" destination="Lwk-sB-GwD" id="PEJ-Hw-nFh"/>
                         <outlet property="slidingView" destination="HiM-EI-vgu" id="aTv-If-t08"/>
                     </connections>
                 </viewController>

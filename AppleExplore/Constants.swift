@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Constants {
+struct  Constants {
     
+    struct Cell {
+        static let exploreCellIdentifier = "ExploreTableViewCell"
+        
+    }
     
 }
