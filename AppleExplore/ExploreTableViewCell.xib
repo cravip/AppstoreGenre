@@ -19,15 +19,15 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-cs-wWb">
                                 <rect key="frame" x="16" y="8" width="46.5" height="27.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-U4-DzT">
-                                <rect key="frame" x="287" y="9" width="25" height="25"/>
+                                <rect key="frame" x="292" y="11.5" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="4Ca-GG-GFW"/>
-                                    <constraint firstAttribute="width" constant="25" id="uPh-lO-jBT"/>
+                                    <constraint firstAttribute="height" constant="20" id="4Ca-GG-GFW"/>
+                                    <constraint firstAttribute="width" constant="20" id="uPh-lO-jBT"/>
                                 </constraints>
                             </imageView>
                         </subviews>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="s5O-9L-RQe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Explore-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppleExplore" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,6 +97,7 @@
                             <constraint firstItem="HBk-dZ-bcl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sHN-kQ-VQ9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Explore" id="CiR-0A-aeh"/>
                     <connections>
                         <outlet property="exploreCollectionView" destination="SSj-IH-dRP" id="6u6-QR-Chd"/>
                         <outlet property="exploreTableView" destination="Lwk-sB-GwD" id="PEJ-Hw-nFh"/>
@@ -106,6 +107,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="965" y="-360"/>
+        </scene>
+        <!--Category Display View Controller-->
+        <scene sceneID="cAX-VL-Xln">
+            <objects>
+                <viewController storyboardIdentifier="CategoryDisplayViewController" automaticallyAdjustsScrollViewInsets="NO" id="Kgj-yc-DBS" customClass="CategoryDisplayViewController" customModule="AppleExplore" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SCL-wv-OGG"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Oy-Fo-7vK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tkC-tf-920">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ndb-CL-6SH">
+                                <rect key="frame" x="0.0" y="28" width="600" height="564"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Kgj-yc-DBS" id="JTe-Ss-Hef"/>
+                                    <outlet property="delegate" destination="Kgj-yc-DBS" id="w0j-NF-DpD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ndb-CL-6SH" secondAttribute="trailing" id="82f-wf-jYT"/>
+                            <constraint firstItem="ndb-CL-6SH" firstAttribute="top" secondItem="SCL-wv-OGG" secondAttribute="bottom" constant="8" id="Jz8-MF-kN1"/>
+                            <constraint firstItem="ndb-CL-6SH" firstAttribute="leading" secondItem="tkC-tf-920" secondAttribute="leading" id="pRs-JJ-1WI"/>
+                            <constraint firstItem="6Oy-Fo-7vK" firstAttribute="top" secondItem="ndb-CL-6SH" secondAttribute="bottom" constant="8" id="v1p-dQ-JVB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="categoryDetailTableView" destination="ndb-CL-6SH" id="VPN-TC-cww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y5t-xn-QBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1797" y="219"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YYz-m3-5bc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s5O-9L-RQe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qjq-DI-hhi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Pcc-FM-z9F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJP-rr-sDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-360"/>
         </scene>
     </scenes>
 </document>

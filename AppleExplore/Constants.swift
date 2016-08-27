@@ -14,5 +14,18 @@ struct  Constants {
         static let exploreCellIdentifier = "ExploreTableViewCell"
         
     }
+    struct Header {
+        static let smallHeaderIdentifier = "SmallHeader"
+        static let NormalHeaderIdentifier = "NormalHeader"
+        
+    }
+    
+    struct StoryBoard {
+        static let mainStoryBoardIdentifier = "Main"
+    }
+    
+    struct Controller {
+        static let CategoryDisplayViewController = "CategoryDisplayViewController"
+    }
     
 }

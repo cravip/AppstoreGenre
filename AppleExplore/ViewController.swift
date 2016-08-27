@@ -68,6 +68,13 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        
+        let categoryDetailController : CategoryDisplayViewController = UIStoryboard.init(name: Constants.StoryBoard.mainStoryBoardIdentifier, bundle: nil).instantiateViewControllerWithIdentifier(Constants.Controller.CategoryDisplayViewController) as! CategoryDisplayViewController
+        let passingCategory = self.exploreCategories![indexPath.row]
+        categoryDetailController.headers.append("All")
+        categoryDetailController.headers.append(passingCategory.categoryName!)
+        categoryDetailController.categoryPassed = passingCategory
+        self.navigationController?.pushViewController(categoryDetailController, animated: false)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -86,8 +93,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let exploreCell : ExploreTableViewCell = tableView.dequeueReusableCellWithIdentifier(Constants.Cell.exploreCellIdentifier) as! ExploreTableViewCell
-        exploreCell.categoryName.text = self.exploreCategories![indexPath.row].categoryName
+
         // set category name for cell
+        exploreCell.categoryName.text = self.exploreCategories![indexPath.row].categoryName
         
         
         return exploreCell
