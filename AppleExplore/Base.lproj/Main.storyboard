@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -27,9 +26,15 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiM-EI-vgu" userLabel="Sliding Image View">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="DQJ-a9-IF0"/>
+                                                </constraints>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SSj-IH-dRP">
                                                 <rect key="frame" x="0.0" y="158" width="600" height="180"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="180" id="To3-Ev-wC3"/>
+                                                </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FuH-MT-eTm">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -51,6 +56,9 @@
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lwk-sB-GwD">
                                                 <rect key="frame" x="0.0" y="346" width="600" height="246"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="246" id="aZE-ln-bHq"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="8Mw-DG-fGS"/>
                                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kGI-dq-XWF"/>
@@ -60,11 +68,9 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="SSj-IH-dRP" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="0LW-Rf-R5q"/>
-                                            <constraint firstItem="SSj-IH-dRP" firstAttribute="height" secondItem="KdJ-pf-OCx" secondAttribute="height" multiplier="0.3" id="6UK-Oq-KDS"/>
                                             <constraint firstItem="Lwk-sB-GwD" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="9db-eD-ZwX"/>
                                             <constraint firstItem="SSj-IH-dRP" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="C9X-oD-29B"/>
                                             <constraint firstItem="Lwk-sB-GwD" firstAttribute="top" secondItem="SSj-IH-dRP" secondAttribute="bottom" constant="8" id="GxY-79-7Pt"/>
-                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="height" secondItem="KdJ-pf-OCx" secondAttribute="height" multiplier="0.25" id="JKN-2G-Y7U"/>
                                             <constraint firstItem="SSj-IH-dRP" firstAttribute="top" secondItem="HiM-EI-vgu" secondAttribute="bottom" constant="8" id="LQV-iV-TNS"/>
                                             <constraint firstItem="HiM-EI-vgu" firstAttribute="leading" secondItem="KdJ-pf-OCx" secondAttribute="leading" id="PZq-CC-aVf"/>
                                             <constraint firstItem="Lwk-sB-GwD" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="Red-08-syk"/>
@@ -86,15 +92,15 @@
                         <constraints>
                             <constraint firstItem="KdJ-pf-OCx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Wfi-57-qdp"/>
                             <constraint firstAttribute="trailing" secondItem="HBk-dZ-bcl" secondAttribute="trailing" id="XoX-9z-gb5"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HBk-dZ-bcl" secondAttribute="bottom" id="dF8-6H-bLg"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HBk-dZ-bcl" secondAttribute="bottom" id="Y7o-La-6sG"/>
                             <constraint firstItem="HBk-dZ-bcl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i6s-Bb-fi4"/>
-                            <constraint firstItem="KdJ-pf-OCx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="jEd-jC-Exf"/>
                             <constraint firstItem="HBk-dZ-bcl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sHN-kQ-VQ9"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="exploreCollectionView" destination="SSj-IH-dRP" id="6u6-QR-Chd"/>
                         <outlet property="exploreTableView" destination="Lwk-sB-GwD" id="PEJ-Hw-nFh"/>
+                        <outlet property="exploreTableViewHeightConstraint" destination="aZE-ln-bHq" id="U1u-dO-pkJ"/>
                         <outlet property="slidingView" destination="HiM-EI-vgu" id="aTv-If-t08"/>
                     </connections>
                 </viewController>

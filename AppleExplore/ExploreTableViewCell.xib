@@ -18,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw8-cs-wWb">
-                                <rect key="frame" x="8" y="8" width="42" height="27.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <rect key="frame" x="16" y="8" width="46.5" height="27.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-U4-DzT">
-                                <rect key="frame" x="287" y="9.5" width="25" height="25"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowDown" translatesAutoresizingMaskIntoConstraints="NO" id="aP0-U4-DzT">
+                                <rect key="frame" x="287" y="9" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="4Ca-GG-GFW"/>
                                     <constraint firstAttribute="width" constant="25" id="uPh-lO-jBT"/>
@@ -37,7 +37,7 @@
                             <constraint firstItem="Tw8-cs-wWb" firstAttribute="top" secondItem="SKv-Eo-ok5" secondAttribute="top" constant="8" id="RNu-kH-hVZ"/>
                             <constraint firstItem="Tw8-cs-wWb" firstAttribute="centerY" secondItem="aP0-U4-DzT" secondAttribute="centerY" id="SIX-jX-vWG"/>
                             <constraint firstAttribute="trailing" secondItem="aP0-U4-DzT" secondAttribute="trailing" constant="8" id="cNR-3a-VoW"/>
-                            <constraint firstItem="Tw8-cs-wWb" firstAttribute="leading" secondItem="SKv-Eo-ok5" secondAttribute="leading" constant="8" id="otd-46-Aj7"/>
+                            <constraint firstItem="Tw8-cs-wWb" firstAttribute="leading" secondItem="SKv-Eo-ok5" secondAttribute="leading" constant="16" id="otd-46-Aj7"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -55,4 +55,7 @@
             <point key="canvasLocation" x="139" y="318"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="arrowDown" width="64" height="64"/>
+    </resources>
 </document>

@@ -18,8 +18,11 @@ class ViewController: UIViewController {
     
     var exploreCategories : [ExploreCategory]?
     
+    @IBOutlet weak var exploreTableViewHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.registerTableViewCells()
         self.fetchCategories()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -30,6 +33,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func registerTableViewCells() {
+        self.exploreTableView.registerNib(UINib.init(nibName: Constants.Cell.exploreCellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.Cell.exploreCellIdentifier)
+    }
+    
     // MARK: Network
     
     func fetchCategories() {
@@ -37,6 +44,7 @@ class ViewController: UIViewController {
             if error == nil {
                 self.exploreCategories = result!.exploreCategories
                 self.exploreTableView.reloadData()
+                self.exploreTableViewHeightConstraint.constant = self.exploreTableView.contentSize.height
             }
         }
     }
@@ -59,11 +67,17 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        let view = UIView.init(frame: CGRectMake(0, 0, tableView.frame.size.width, CGFloat.init(45)))
+        
+        let label = UILabel.init(frame: CGRectMake(16, 8, view.frame.size.width, 30))
+        label.text = "Categories"
+        view.addSubview(label)
+            
+        return view
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
