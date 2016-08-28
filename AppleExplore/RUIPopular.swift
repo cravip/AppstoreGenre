@@ -23,7 +23,6 @@ class RUIPopular: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
         self.collectionView.registerNib(UINib.init(nibName: Constants.Cell.appInfoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.Cell.appInfoCellIdentifier)
     }
     
@@ -40,7 +39,9 @@ class RUIPopular: UIView {
   
     func setUpXib() {
         rootView = UINib(nibName: Constants.RUIViews.ruiPopular, bundle: nil).instantiateWithOwner(self, options: nil)[0] as! UIView
+        // setting the frame as per parent's bounds
         rootView.frame = bounds
+        // only width and height should resize
         rootView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
 
         self.addSubview(rootView)

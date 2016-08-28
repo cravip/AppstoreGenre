@@ -21,24 +21,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-pf-OCx" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="570"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="470"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HiM-EI-vgu" userLabel="Sliding Image View">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="DQJ-a9-IF0"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trS-MW-DJC" userLabel="Popular View" customClass="RUIPopular" customModule="AppleExplore" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="108" width="600" height="200"/>
+                                                <rect key="frame" x="0.0" y="8" width="600" height="200"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="3jv-VI-gyv"/>
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lwk-sB-GwD">
-                                                <rect key="frame" x="0.0" y="316" width="600" height="246"/>
+                                                <rect key="frame" x="0.0" y="216" width="600" height="246"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="246" id="aZE-ln-bHq"/>
@@ -51,16 +44,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="9db-eD-ZwX"/>
-                                            <constraint firstItem="trS-MW-DJC" firstAttribute="leading" secondItem="HiM-EI-vgu" secondAttribute="leading" id="AFM-Fa-B5x"/>
+                                            <constraint firstItem="trS-MW-DJC" firstAttribute="leading" secondItem="KdJ-pf-OCx" secondAttribute="leading" id="3KP-gp-VDP"/>
+                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="leading" secondItem="trS-MW-DJC" secondAttribute="leading" id="3jo-PL-Fyk"/>
+                                            <constraint firstAttribute="trailing" secondItem="trS-MW-DJC" secondAttribute="trailing" id="5XH-VB-z5h"/>
+                                            <constraint firstItem="trS-MW-DJC" firstAttribute="top" secondItem="KdJ-pf-OCx" secondAttribute="top" constant="8" id="8eO-Ao-9zh"/>
                                             <constraint firstItem="Lwk-sB-GwD" firstAttribute="top" secondItem="trS-MW-DJC" secondAttribute="bottom" constant="8" id="Bzk-AV-hsh"/>
-                                            <constraint firstItem="trS-MW-DJC" firstAttribute="top" secondItem="HiM-EI-vgu" secondAttribute="bottom" constant="8" id="Egk-Pk-TR9"/>
-                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="leading" secondItem="KdJ-pf-OCx" secondAttribute="leading" id="PZq-CC-aVf"/>
-                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="Red-08-syk"/>
-                                            <constraint firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="WSn-km-dee"/>
-                                            <constraint firstItem="trS-MW-DJC" firstAttribute="trailing" secondItem="HiM-EI-vgu" secondAttribute="trailing" id="eX4-Ef-p3Q"/>
-                                            <constraint firstItem="HiM-EI-vgu" firstAttribute="top" secondItem="KdJ-pf-OCx" secondAttribute="top" id="t7e-Vs-kcu"/>
                                             <constraint firstAttribute="bottom" secondItem="Lwk-sB-GwD" secondAttribute="bottom" constant="8" id="wG4-LV-SHk"/>
+                                            <constraint firstItem="Lwk-sB-GwD" firstAttribute="trailing" secondItem="trS-MW-DJC" secondAttribute="trailing" id="xe7-qI-Kwa"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -86,7 +76,6 @@
                         <outlet property="explorePopularView" destination="trS-MW-DJC" id="7bz-Eq-rpd"/>
                         <outlet property="exploreTableView" destination="Lwk-sB-GwD" id="PEJ-Hw-nFh"/>
                         <outlet property="exploreTableViewHeightConstraint" destination="aZE-ln-bHq" id="U1u-dO-pkJ"/>
-                        <outlet property="slidingView" destination="HiM-EI-vgu" id="aTv-If-t08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

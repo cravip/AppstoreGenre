@@ -152,7 +152,6 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         // calculating height of headers of next controller
         animator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
         
-       // categoryDetailController.transitioningDelegate = self
 
         self.navigationController?.pushViewController(categoryDetailController, animated: true)
     }
@@ -162,7 +161,8 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
         let label = UILabel.init(frame: CGRectMake(16, 8, view.frame.size.width, 30))
         label.text = "Categories"
-        view.backgroundColor = UIColor.lightGrayColor()
+        label.textColor = UIColor.grayColor()
+        view.backgroundColor = UIColor.init(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 0.8)
         view.addSubview(label)
             
         return view
@@ -188,10 +188,10 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 
 // MARK: UIViewController Transitioning Delegate
 
-extension ViewController : UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
+extension ViewController : UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("called in viewcontroller")
+      //  print("called in viewcontroller")
         if operation == UINavigationControllerOperation.Push {
             animator.isPush = true
             return animator

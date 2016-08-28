@@ -20,7 +20,7 @@ class ExploreCategory {
         
         self.id = json["id"].intValue
         self.categoryName = json["name"].stringValue
-        self.popularApps = json["rssUrls"]["topApplications"].stringValue
+        self.popularApps = json["rssUrls"]["topFreeApplications"].stringValue
         // parsing key-value to array based explore categories
         if let subCategories = json["subgenres"].dictionary {
             self.exploreCategories = [ExploreCategory]()
@@ -29,7 +29,7 @@ class ExploreCategory {
                 exploreCategories?.append(categoryObtained)
             }
             
-            
+            // sort by name as done in explore section in appstore app
             self.exploreCategories?.sortInPlace({ (elementOne, elementTwo) -> Bool in
                 let stringOne = elementOne.categoryName
                 let stringTwo = elementTwo.categoryName

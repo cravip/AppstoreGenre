@@ -46,15 +46,13 @@ public class API {
         
         public var parameters: [String : AnyObject]? {
             
-            var parameters = [String : AnyObject]()
+          //  _ parameters = [String : AnyObject]()
             switch self {
             case .ExploreCategories, .ExploreAppInfo :
                 return nil
-            
-            return parameters
-            
-            
             }
+            
+
         }
         
         
@@ -68,7 +66,7 @@ public class API {
     }
     
     public static func request(endpoint: API.Endpoints,completionHandler: Response<AnyObject, NSError> -> Void) -> Request {
-        print(endpoint.path)
+      //  print(endpoint.path)
         let request =   Alamofire.Manager.sharedInstance.request(
             endpoint.method,
             endpoint.path,

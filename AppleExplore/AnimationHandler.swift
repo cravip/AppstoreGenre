@@ -32,6 +32,7 @@ class AnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
         var topView : UIView?
         var bottomView : UIView?
         var seperationY : CGFloat?
+        // setup references as per push or pop
         if self.isPush {
             topView = self.topImageView
             bottomView = self.bottomImageView
@@ -53,7 +54,7 @@ class AnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
         contextContainer?.addSubview(bottomView!)
         destinationController.view.alpha = 0.2
         
-        
+        // set frame position of snapshots accordingly
         if self.isPush {
 
             topView?.frame = CGRectMake(0, 0, topView!.frame.size.width, topView!.frame.size.height)
@@ -70,6 +71,7 @@ class AnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
         UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
             let topFrame = topView!.frame
             let bottomFrame = bottomView!.frame
+            // final frame positions
             if self.isPush {
                 let finalY = (self.finalTopYPoint! - topFrame.size.height)
                 topView?.frame = CGRectMake(topFrame.origin.x, finalY, topFrame.size.width, topFrame.size.height)

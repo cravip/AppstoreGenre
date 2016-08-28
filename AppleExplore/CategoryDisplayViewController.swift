@@ -233,7 +233,7 @@ extension CategoryDisplayViewController : UITableViewDelegate, UITableViewDataSo
 extension CategoryDisplayViewController : UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("called in category detail view controller")
+      //  print("called in category detail view controller")
         if operation == UINavigationControllerOperation.Push {
             animator.isPush = true
             return animator
