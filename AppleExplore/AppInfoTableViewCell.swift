@@ -9,6 +9,7 @@
 import UIKit
 
 class AppInfoTableViewCell: UITableViewCell {
+    @IBOutlet weak var popularView: RUIPopular!
 
     override func awakeFromNib() {
         super.awakeFromNib()

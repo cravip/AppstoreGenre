@@ -14,12 +14,13 @@ class ExploreCategory {
     var categoryName : String?
     var id : Int?
     var exploreCategories : [ExploreCategory]?
+    var popularApps : String?
     
     init(json: JSON) {
         
         self.id = json["id"].intValue
         self.categoryName = json["name"].stringValue
-        
+        self.popularApps = json["rssUrls"]["topApplications"].stringValue
         // parsing key-value to array based explore categories
         if let subCategories = json["subgenres"].dictionary {
             self.exploreCategories = [ExploreCategory]()

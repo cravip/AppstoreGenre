@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController: RUIViewController {
 
@@ -14,9 +15,12 @@ class ViewController: RUIViewController {
     
     @IBOutlet weak var exploreCollectionView: UICollectionView!
     
+    @IBOutlet weak var explorePopularView: RUIPopular!
+    
     @IBOutlet weak var exploreTableView: UITableView!
     
     var exploreCategories : [ExploreCategory]?
+    var appInfoData : [ExploreAppInfo]?
     
     var animator = AnimationHandler()
     
@@ -25,27 +29,44 @@ class ViewController: RUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.registerTableViewCells()
+        self.setUpViews()
         self.fetchCategories()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.delegate = self
         self.navigationController?.navigationBar.hidden = false
 
-     //   self.pushAnimator = PushAnimationHandler()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+ 
+    // MARK: Driver Methods
+    
+    func setUpViews() {
+        
+        self.registerTableViewCells()
+        self.registerCollectionViewCells()
+        
+
+    }
     func registerTableViewCells() {
         self.exploreTableView.registerNib(UINib.init(nibName: Constants.Cell.exploreCellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.Cell.exploreCellIdentifier)
     }
+    
+    func registerCollectionViewCells() {
+        self.explorePopularView.collectionView.registerNib(UINib(nibName: Constants.Cell.appInfoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.Cell.appInfoCellIdentifier)
+        self.explorePopularView.collectionView.dataSource = self
+        self.explorePopularView.collectionView.delegate = self
+    }
+    
     
     // MARK: Network
     
@@ -55,6 +76,14 @@ class ViewController: RUIViewController {
                 self.exploreCategories = result!.exploreCategories
                 self.exploreTableView.reloadData()
                 self.exploreTableViewHeightConstraint.constant = self.exploreTableView.contentSize.height
+                
+                // fetch app info
+                CategoryFetcher.getAppsInfo(result!.popularApps!, completion: { (result, error) in
+                    if error == nil {
+                        self.appInfoData = result
+                        self.explorePopularView.collectionView.reloadData()
+                    }
+                })
             }
         }
     }
@@ -94,7 +123,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
 
         // take snap shots and store them in transition animator
-         var rectObtained = tableView.rectForRowAtIndexPath(indexPath)
+         let rectObtained = tableView.rectForRowAtIndexPath(indexPath)
        // rectObtained = CGRectOffset(rectObtained, 0, 0)
         
         
@@ -133,6 +162,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
         let label = UILabel.init(frame: CGRectMake(16, 8, view.frame.size.width, 30))
         label.text = "Categories"
+        view.backgroundColor = UIColor.lightGrayColor()
         view.addSubview(label)
             
         return view
@@ -170,4 +200,32 @@ extension ViewController : UINavigationControllerDelegate, UIViewControllerTrans
         return animator
     }
 
+}
+
+extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.appInfoData?.count > 0 {
+            return self.appInfoData!.count
+        }
+        return 0
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.Cell.appInfoCellIdentifier, forIndexPath: indexPath) as! AppInfoCollectionViewCell
+        
+        cell.titleLabel.text = self.appInfoData![indexPath.item].appName
+        cell.detailLabel.text = self.appInfoData![indexPath.item].appOwner
+        if let imgURL = self.appInfoData![indexPath.item].appImageUrl {
+            cell.imageView.kf_setImageWithURL(imgURL)
+        }
+        return cell
+    }
+    
 }

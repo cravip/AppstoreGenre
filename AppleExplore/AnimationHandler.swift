@@ -60,7 +60,7 @@ class AnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
             bottomView?.frame = CGRectMake(0, seperationY!, bottomView!.frame.size.width, bottomView!.frame.size.height)
 
         }else {
-            topView?.frame = CGRectMake(0, -topView!.frame.size.height, topView!.frame.size.width, topView!.frame.size.height)
+            topView?.frame = CGRectMake(0, self.finalTopYPoint! - topView!.frame.size.height, topView!.frame.size.width, topView!.frame.size.height)
             bottomView?.frame = CGRectMake(0, seperationY! + bottomView!.frame.size.height, bottomView!.frame.size.width, bottomView!.frame.size.height)
 
         }

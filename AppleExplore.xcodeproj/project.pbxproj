@@ -27,6 +27,13 @@
 		765B07A01D71D63100F5AB55 /* BaseHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B079F1D71D63100F5AB55 /* BaseHeaderFooterView.swift */; };
 		765B07A31D7216FB00F5AB55 /* HeaderCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07A21D7216FB00F5AB55 /* HeaderCommunicator.swift */; };
 		765B07A71D72DFF800F5AB55 /* RUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07A61D72DFF800F5AB55 /* RUIViewController.swift */; };
+		765B07AA1D72F6D000F5AB55 /* RUIPopular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07A91D72F6D000F5AB55 /* RUIPopular.swift */; };
+		765B07AC1D72F6DE00F5AB55 /* RUIPopular.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765B07AB1D72F6DE00F5AB55 /* RUIPopular.xib */; };
+		765B07AF1D72F9C000F5AB55 /* AppInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07AD1D72F9C000F5AB55 /* AppInfoCollectionViewCell.swift */; };
+		765B07B01D72F9C000F5AB55 /* AppInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765B07AE1D72F9C000F5AB55 /* AppInfoCollectionViewCell.xib */; };
+		765B07B21D72FC1B00F5AB55 /* ExploreAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07B11D72FC1B00F5AB55 /* ExploreAppInfo.swift */; };
+		765B07B51D730DF600F5AB55 /* AppInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07B31D730DF600F5AB55 /* AppInfoTableViewCell.swift */; };
+		765B07B61D730DF600F5AB55 /* AppInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765B07B41D730DF600F5AB55 /* AppInfoTableViewCell.xib */; };
 		9A8A746A7D2DA1E3831611F5 /* Pods_AppleExplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0060C31BEA40615588D95CE9 /* Pods_AppleExplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +63,13 @@
 		765B079F1D71D63100F5AB55 /* BaseHeaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseHeaderFooterView.swift; sourceTree = "<group>"; };
 		765B07A21D7216FB00F5AB55 /* HeaderCommunicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCommunicator.swift; sourceTree = "<group>"; };
 		765B07A61D72DFF800F5AB55 /* RUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIViewController.swift; sourceTree = "<group>"; };
+		765B07A91D72F6D000F5AB55 /* RUIPopular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RUIPopular.swift; sourceTree = "<group>"; };
+		765B07AB1D72F6DE00F5AB55 /* RUIPopular.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RUIPopular.xib; sourceTree = "<group>"; };
+		765B07AD1D72F9C000F5AB55 /* AppInfoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		765B07AE1D72F9C000F5AB55 /* AppInfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		765B07B11D72FC1B00F5AB55 /* ExploreAppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreAppInfo.swift; sourceTree = "<group>"; };
+		765B07B31D730DF600F5AB55 /* AppInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfoTableViewCell.swift; sourceTree = "<group>"; };
+		765B07B41D730DF600F5AB55 /* AppInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppInfoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,7 @@
 		76564CB51D71AC5200B0096C /* AppleExplore */ = {
 			isa = PBXGroup;
 			children = (
+				765B07A81D72F6B300F5AB55 /* Reusable Views */,
 				76564CC81D71AC5C00B0096C /* Controllers */,
 				765B07A11D7216EA00F5AB55 /* Protocols */,
 				765B078F1D71CC4300F5AB55 /* Transition Handlers */,
@@ -139,6 +154,10 @@
 			children = (
 				76564CCD1D71B0F400B0096C /* ExploreTableViewCell.swift */,
 				76564CCE1D71B0F400B0096C /* ExploreTableViewCell.xib */,
+				765B07AD1D72F9C000F5AB55 /* AppInfoCollectionViewCell.swift */,
+				765B07AE1D72F9C000F5AB55 /* AppInfoCollectionViewCell.xib */,
+				765B07B31D730DF600F5AB55 /* AppInfoTableViewCell.swift */,
+				765B07B41D730DF600F5AB55 /* AppInfoTableViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -156,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				76564CD51D71B6BE00B0096C /* ExploreCategory.swift */,
+				765B07B11D72FC1B00F5AB55 /* ExploreAppInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -194,6 +214,15 @@
 				765B07A21D7216FB00F5AB55 /* HeaderCommunicator.swift */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		765B07A81D72F6B300F5AB55 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				765B07A91D72F6D000F5AB55 /* RUIPopular.swift */,
+				765B07AB1D72F6DE00F5AB55 /* RUIPopular.xib */,
+			);
+			name = "Reusable Views";
 			sourceTree = "<group>";
 		};
 		D1E81445A61DD6E7D69F676E /* Pods */ = {
@@ -268,9 +297,12 @@
 			files = (
 				76564CC11D71AC5200B0096C /* LaunchScreen.storyboard in Resources */,
 				76564CBE1D71AC5200B0096C /* Assets.xcassets in Resources */,
+				765B07B01D72F9C000F5AB55 /* AppInfoCollectionViewCell.xib in Resources */,
+				765B07AC1D72F6DE00F5AB55 /* RUIPopular.xib in Resources */,
 				76564CBC1D71AC5200B0096C /* Main.storyboard in Resources */,
 				765B079A1D71D45300F5AB55 /* SmallHeader.xib in Resources */,
 				76564CD01D71B0F400B0096C /* ExploreTableViewCell.xib in Resources */,
+				765B07B61D730DF600F5AB55 /* AppInfoTableViewCell.xib in Resources */,
 				765B079C1D71D56B00F5AB55 /* NormalHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,7 +367,9 @@
 				765B07951D71CE0D00F5AB55 /* CategoryDisplayViewController.swift in Sources */,
 				76564CD61D71B6BE00B0096C /* ExploreCategory.swift in Sources */,
 				76564CB71D71AC5200B0096C /* AppDelegate.swift in Sources */,
+				765B07AA1D72F6D000F5AB55 /* RUIPopular.swift in Sources */,
 				765B07A71D72DFF800F5AB55 /* RUIViewController.swift in Sources */,
+				765B07B51D730DF600F5AB55 /* AppInfoTableViewCell.swift in Sources */,
 				765B07A31D7216FB00F5AB55 /* HeaderCommunicator.swift in Sources */,
 				765B07911D71CC6100F5AB55 /* AnimationHandler.swift in Sources */,
 				76564CDB1D71BFFD00B0096C /* ExploreCategoryFetcher.swift in Sources */,
@@ -343,6 +377,8 @@
 				76564CD31D71B3BC00B0096C /* Api.swift in Sources */,
 				76564CCF1D71B0F400B0096C /* ExploreTableViewCell.swift in Sources */,
 				765B07981D71D43300F5AB55 /* SmallHeader.swift in Sources */,
+				765B07B21D72FC1B00F5AB55 /* ExploreAppInfo.swift in Sources */,
+				765B07AF1D72F9C000F5AB55 /* AppInfoCollectionViewCell.swift in Sources */,
 				765B079E1D71D57700F5AB55 /* NormalHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

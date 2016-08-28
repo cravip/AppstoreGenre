@@ -21,12 +21,13 @@ public class API {
     public enum Endpoints {
         
         case ExploreCategories()
+        case ExploreAppInfo (String)
         
         public var method: Alamofire.Method {
             switch self {
-            case .ExploreCategories :
+            case .ExploreCategories, .ExploreAppInfo :
                 return Alamofire.Method.GET
-                
+            
                 
             }
         }
@@ -36,6 +37,9 @@ public class API {
             switch self {
             case .ExploreCategories:
                 return baseUrl + categoryUrl
+                
+            case .ExploreAppInfo(let pathObtained) :
+                return pathObtained
             }
         }
         
@@ -44,7 +48,7 @@ public class API {
             
             var parameters = [String : AnyObject]()
             switch self {
-            case .ExploreCategories :
+            case .ExploreCategories, .ExploreAppInfo :
                 return nil
             
             return parameters

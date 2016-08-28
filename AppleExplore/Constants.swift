@@ -12,6 +12,8 @@ struct  Constants {
     
     struct Cell {
         static let exploreCellIdentifier = "ExploreTableViewCell"
+        static let appInfoCellIdentifier = "AppInfoCollectionViewCell"
+        static let appInfoTableViewCellIdentifier = "AppInfoTableViewCell"
         
     }
     struct Header {
@@ -28,4 +30,7 @@ struct  Constants {
         static let CategoryDisplayViewController = "CategoryDisplayViewController"
     }
     
+    struct RUIViews {
+        static let ruiPopular = "RUIPopular"
+    }
 }
