@@ -18,8 +18,7 @@
 		76564CD31D71B3BC00B0096C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CD21D71B3BC00B0096C /* Api.swift */; };
 		76564CD61D71B6BE00B0096C /* ExploreCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CD51D71B6BE00B0096C /* ExploreCategory.swift */; };
 		76564CDB1D71BFFD00B0096C /* ExploreCategoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76564CDA1D71BFFD00B0096C /* ExploreCategoryFetcher.swift */; };
-		765B07911D71CC6100F5AB55 /* PushAnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07901D71CC6100F5AB55 /* PushAnimationHandler.swift */; };
-		765B07931D71CC6900F5AB55 /* PopAnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07921D71CC6900F5AB55 /* PopAnimationHandler.swift */; };
+		765B07911D71CC6100F5AB55 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07901D71CC6100F5AB55 /* AnimationHandler.swift */; };
 		765B07951D71CE0D00F5AB55 /* CategoryDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07941D71CE0D00F5AB55 /* CategoryDisplayViewController.swift */; };
 		765B07981D71D43300F5AB55 /* SmallHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B07971D71D43300F5AB55 /* SmallHeader.swift */; };
 		765B079A1D71D45300F5AB55 /* SmallHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 765B07991D71D45300F5AB55 /* SmallHeader.xib */; };
@@ -48,8 +47,7 @@
 		76564CD21D71B3BC00B0096C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		76564CD51D71B6BE00B0096C /* ExploreCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCategory.swift; sourceTree = "<group>"; };
 		76564CDA1D71BFFD00B0096C /* ExploreCategoryFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCategoryFetcher.swift; sourceTree = "<group>"; };
-		765B07901D71CC6100F5AB55 /* PushAnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushAnimationHandler.swift; sourceTree = "<group>"; };
-		765B07921D71CC6900F5AB55 /* PopAnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopAnimationHandler.swift; sourceTree = "<group>"; };
+		765B07901D71CC6100F5AB55 /* AnimationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		765B07941D71CE0D00F5AB55 /* CategoryDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDisplayViewController.swift; sourceTree = "<group>"; };
 		765B07971D71D43300F5AB55 /* SmallHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallHeader.swift; sourceTree = "<group>"; };
 		765B07991D71D45300F5AB55 /* SmallHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallHeader.xib; sourceTree = "<group>"; };
@@ -173,8 +171,7 @@
 		765B078F1D71CC4300F5AB55 /* Transition Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				765B07901D71CC6100F5AB55 /* PushAnimationHandler.swift */,
-				765B07921D71CC6900F5AB55 /* PopAnimationHandler.swift */,
+				765B07901D71CC6100F5AB55 /* AnimationHandler.swift */,
 			);
 			name = "Transition Handlers";
 			sourceTree = "<group>";
@@ -340,11 +337,10 @@
 				76564CB71D71AC5200B0096C /* AppDelegate.swift in Sources */,
 				765B07A71D72DFF800F5AB55 /* RUIViewController.swift in Sources */,
 				765B07A31D7216FB00F5AB55 /* HeaderCommunicator.swift in Sources */,
-				765B07911D71CC6100F5AB55 /* PushAnimationHandler.swift in Sources */,
+				765B07911D71CC6100F5AB55 /* AnimationHandler.swift in Sources */,
 				76564CDB1D71BFFD00B0096C /* ExploreCategoryFetcher.swift in Sources */,
 				76564CCC1D71AC7000B0096C /* Constants.swift in Sources */,
 				76564CD31D71B3BC00B0096C /* Api.swift in Sources */,
-				765B07931D71CC6900F5AB55 /* PopAnimationHandler.swift in Sources */,
 				76564CCF1D71B0F400B0096C /* ExploreTableViewCell.swift in Sources */,
 				765B07981D71D43300F5AB55 /* SmallHeader.swift in Sources */,
 				765B079E1D71D57700F5AB55 /* NormalHeader.swift in Sources */,

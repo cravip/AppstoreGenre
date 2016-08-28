@@ -13,8 +13,7 @@ class CategoryDisplayViewController: RUIViewController, HeaderCommunicator {
     @IBOutlet weak var categoryDetailTableView: UITableView!
     var categoryPassed : ExploreCategory?
     
-    var pushAnimator = PushAnimationHandler()
-    var popAnimator = PopAnimationHandler()
+    var animator = AnimationHandler()
     
     var headers : [String] = []
     override func viewDidLoad() {
@@ -23,7 +22,6 @@ class CategoryDisplayViewController: RUIViewController, HeaderCommunicator {
         self.categoryDetailTableView.tableHeaderView = nil
         self.registerTableViewCells()
 
-        self.navigationController?.navigationBar.hidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +29,8 @@ class CategoryDisplayViewController: RUIViewController, HeaderCommunicator {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.delegate = self
+        self.navigationController?.navigationBar.hidden = true
+
 
     }
     override func didReceiveMemoryWarning() {
@@ -125,11 +125,11 @@ extension CategoryDisplayViewController : UITableViewDelegate, UITableViewDataSo
         let snapshotBottom = self.view.resizableSnapshotViewFromRect(bottomFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
         
         
-        pushAnimator.topImageView = snapshotTop
-        pushAnimator.bottomImageView = snapshotBottom
-        pushAnimator.seperationPoint = actualPoint.y
+        animator.topImageView = snapshotTop
+        animator.bottomImageView = snapshotBottom
+        animator.seperationPoint = actualPoint.y
         // calculating height of headers of next controller
-        pushAnimator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
+        animator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
         
         
         // storing them in controller it self, so value can be obtained when popping
@@ -196,15 +196,11 @@ extension CategoryDisplayViewController : UINavigationControllerDelegate, UIView
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("called in category detail view controller")
         if operation == UINavigationControllerOperation.Push {
-            pushAnimator.isPush = true
-            return pushAnimator
+            animator.isPush = true
+            return animator
         }
-        pushAnimator.isPush = false
-        return pushAnimator
+        animator.isPush = false
+        return animator
     }
-    
-    
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return pushAnimator
-    }
+
 }

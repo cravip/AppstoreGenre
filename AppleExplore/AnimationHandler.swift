@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PushAnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
+class AnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
     
     var topImageView : UIView?
     var bottomImageView : UIView?

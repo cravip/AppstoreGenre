@@ -18,7 +18,7 @@ class ViewController: RUIViewController {
     
     var exploreCategories : [ExploreCategory]?
     
-    var pushAnimator = PushAnimationHandler()
+    var animator = AnimationHandler()
     
     
     @IBOutlet weak var exploreTableViewHeightConstraint: NSLayoutConstraint!
@@ -34,6 +34,7 @@ class ViewController: RUIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.delegate = self
+        self.navigationController?.navigationBar.hidden = false
 
      //   self.pushAnimator = PushAnimationHandler()
     }
@@ -110,9 +111,9 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         let snapshotBottom = self.view.resizableSnapshotViewFromRect(bottomFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
         
         
-        pushAnimator.topImageView = snapshotTop
-        pushAnimator.bottomImageView = snapshotBottom
-        pushAnimator.seperationPoint = actualPoint.y
+        animator.topImageView = snapshotTop
+        animator.bottomImageView = snapshotBottom
+        animator.seperationPoint = actualPoint.y
         
         // storing them in controller it self, so value can be obtained when popping
         self.topView = snapshotTop
@@ -120,7 +121,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         self.seperationPoint = actualPoint.y
         
         // calculating height of headers of next controller
-        pushAnimator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
+        animator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
         
        // categoryDetailController.transitioningDelegate = self
 
@@ -146,6 +147,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 
         // set category name for cell
         exploreCell.categoryName.text = self.exploreCategories![indexPath.row].categoryName
+        exploreCell.selectionStyle = UITableViewCellSelectionStyle.None
         
         
         return exploreCell
@@ -161,16 +163,11 @@ extension ViewController : UINavigationControllerDelegate, UIViewControllerTrans
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("called in viewcontroller")
         if operation == UINavigationControllerOperation.Push {
-            pushAnimator.isPush = true
-            return pushAnimator
+            animator.isPush = true
+            return animator
         }
-        pushAnimator.isPush = false
-        return pushAnimator
+        animator.isPush = false
+        return animator
     }
-    
-    
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        print("animation controller delegate method called")
-        return pushAnimator
-    }
+
 }
