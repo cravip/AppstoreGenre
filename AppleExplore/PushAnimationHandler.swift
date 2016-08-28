@@ -18,7 +18,7 @@ class PushAnimationHandler : NSObject, UIViewControllerAnimatedTransitioning {
     var isPush  = true
     
      func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.75
+        return 0.25
     }
     
     // handles animation for tapping the tableview

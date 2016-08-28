@@ -27,11 +27,15 @@ class ExploreCategory {
                 let categoryObtained = ExploreCategory(json: genre.1)
                 exploreCategories?.append(categoryObtained)
             }
+            
+            
             self.exploreCategories?.sortInPlace({ (elementOne, elementTwo) -> Bool in
-                let number = NSNumber.init(integer: elementOne.id!)
-                let numberTwo = NSNumber.init(integer: elementTwo.id!)
-                return (number.compare(numberTwo) == NSComparisonResult.OrderedAscending)
+                let stringOne = elementOne.categoryName
+                let stringTwo = elementTwo.categoryName
+                return (stringOne!.compare(stringTwo!) == NSComparisonResult.OrderedAscending)
+
             })
+         
         }
         
     }
