@@ -47,6 +47,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="containerView" destination="arF-FM-HTF" id="aam-gd-DYP"/>
                 <outlet property="titleLabel" destination="uG0-dh-j01" id="X7y-Mj-LAf"/>
             </connections>
             <point key="canvasLocation" x="112.5" y="41"/>

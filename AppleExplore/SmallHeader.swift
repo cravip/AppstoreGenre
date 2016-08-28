@@ -10,6 +10,7 @@ import UIKit
 
 class SmallHeader: BaseHeaderFooterView {
 
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -18,6 +19,16 @@ class SmallHeader: BaseHeaderFooterView {
         // Drawing code
     }
     */
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(BaseHeaderFooterView.didTapOnHeaderCell(_:)))
+        self.containerView.addGestureRecognizer(tapGesture)
+
+    }
+
+    
+    
     
     
 

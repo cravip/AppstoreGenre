@@ -8,10 +8,13 @@
 
 import UIKit
 
-class CategoryDisplayViewController: UIViewController {
+class CategoryDisplayViewController: RUIViewController, HeaderCommunicator {
 
     @IBOutlet weak var categoryDetailTableView: UITableView!
     var categoryPassed : ExploreCategory?
+    
+    var pushAnimator = PushAnimationHandler()
+    var popAnimator = PopAnimationHandler()
     
     var headers : [String] = []
     override func viewDidLoad() {
@@ -25,20 +28,44 @@ class CategoryDisplayViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.delegate = self
+
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
+    // MARK: Helpers
+    
     func registerTableViewCells() {
         self.categoryDetailTableView.registerNib(UINib.init(nibName: Constants.Cell.exploreCellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.Cell.exploreCellIdentifier)
 
         self.categoryDetailTableView.registerNib(UINib.init(nibName: Constants.Header.smallHeaderIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: Constants.Header.smallHeaderIdentifier)
         self.categoryDetailTableView.registerNib(UINib.init(nibName: Constants.Header.NormalHeaderIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: Constants.Header.NormalHeaderIdentifier)
 
-        
     }
+    
+
+    
+    // MARK : HeaderCommunicator 
+    
+    func didClickOnHeaderCell(headerCell: BaseHeaderFooterView) {
+        let section = headerCell.sectionNo
+        if section == (headers.count - 1 ) {
+            // last section tapped
+            self.navigationController?.popViewControllerAnimated(true)
+        }else {
+            self.navigationController?.popToViewController((self.navigationController?.viewControllers[section!])!, animated: true)
+
+        }
+    }
+    
+
+   
     /*
     // MARK: - Navigation
 
@@ -77,7 +104,44 @@ extension CategoryDisplayViewController : UITableViewDelegate, UITableViewDataSo
         categoryDetailController.headers.appendContentsOf(headers)
         categoryDetailController.headers.append(passingCategory.categoryName!)
         categoryDetailController.categoryPassed = passingCategory
-        self.navigationController?.pushViewController(categoryDetailController, animated: false)
+        
+        
+        // frame for cell clicked
+        let rectObtained = tableView.rectForRowAtIndexPath(indexPath)
+        
+        
+        // bottom point
+        let cellBottomPoint = CGPointMake(rectObtained.origin.x, rectObtained.origin.y + rectObtained.size.height)
+        let actualPoint = tableView.convertPoint(cellBottomPoint, toView: self.view)
+        
+        
+        // top frame and bottom frame
+        let topFrame = CGRectMake(0, 0, self.view.frame.size.width, actualPoint.y)
+        let bottomFrame = CGRectMake(0, actualPoint.y, self.view.frame.size.width, self.view.frame.size.height - actualPoint.y)
+        
+        // take snap shots and store them in transition animator
+        // top part snapshot
+        let snapshotTop = self.view.resizableSnapshotViewFromRect(topFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let snapshotBottom = self.view.resizableSnapshotViewFromRect(bottomFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        
+        
+        pushAnimator.topImageView = snapshotTop
+        pushAnimator.bottomImageView = snapshotBottom
+        pushAnimator.seperationPoint = actualPoint.y
+        // calculating height of headers of next controller
+        pushAnimator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
+        
+        
+        // storing them in controller it self, so value can be obtained when popping
+        self.topView = snapshotTop
+        self.bottomView = snapshotBottom
+        self.seperationPoint = actualPoint.y
+
+        
+       // categoryDetailController.transitioningDelegate = self
+
+        
+        self.navigationController?.pushViewController(categoryDetailController, animated: true)
     }
     
     
@@ -87,13 +151,17 @@ extension CategoryDisplayViewController : UITableViewDelegate, UITableViewDataSo
         if section == (headers.count - 1) {
             // last section
             let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(Constants.Header.NormalHeaderIdentifier) as! NormalHeader
+            
             header.sectionNo = section
             header.titleLabel.text = headers[section]
+            header.delegate = self
             return header
+            
         }else {
             let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(Constants.Header.smallHeaderIdentifier) as! SmallHeader
             header.sectionNo = section
             header.titleLabel.text = headers[section]
+            header.delegate = self
             return header
 
         }
@@ -117,4 +185,26 @@ extension CategoryDisplayViewController : UITableViewDelegate, UITableViewDataSo
         return exploreCell
     }
     
+   
+    
+}
+
+// MARK: UIViewController Transitioning Delegate
+
+extension CategoryDisplayViewController : UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("called in category detail view controller")
+        if operation == UINavigationControllerOperation.Push {
+            pushAnimator.isPush = true
+            return pushAnimator
+        }
+        pushAnimator.isPush = false
+        return pushAnimator
+    }
+    
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return pushAnimator
+    }
 }

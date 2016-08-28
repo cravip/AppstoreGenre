@@ -11,12 +11,12 @@ import UIKit
 class BaseHeaderFooterView: UITableViewHeaderFooterView {
 
     var sectionNo : Int?
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    var delegate : HeaderCommunicator?
+    
+    // MARK: Actions
+    
+    func didTapOnHeaderCell(tapGesture : UITapGestureRecognizer) {
+        self.delegate?.didClickOnHeaderCell(self)
     }
-    */
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: RUIViewController {
 
     @IBOutlet weak var slidingView: UIView!
     
@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var exploreTableView: UITableView!
     
     var exploreCategories : [ExploreCategory]?
+    
+    var pushAnimator = PushAnimationHandler()
+    
     
     @IBOutlet weak var exploreTableViewHeightConstraint: NSLayoutConstraint!
     
@@ -28,6 +31,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.delegate = self
+
+     //   self.pushAnimator = PushAnimationHandler()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,12 +78,53 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         
+        // pushing category detail controller
         let categoryDetailController : CategoryDisplayViewController = UIStoryboard.init(name: Constants.StoryBoard.mainStoryBoardIdentifier, bundle: nil).instantiateViewControllerWithIdentifier(Constants.Controller.CategoryDisplayViewController) as! CategoryDisplayViewController
+        
+        // pass the selected category
         let passingCategory = self.exploreCategories![indexPath.row]
+        categoryDetailController.categoryPassed = passingCategory
+        
+        // append the headers to show at the top
         categoryDetailController.headers.append("All")
         categoryDetailController.headers.append(passingCategory.categoryName!)
-        categoryDetailController.categoryPassed = passingCategory
-        self.navigationController?.pushViewController(categoryDetailController, animated: false)
+        
+     
+        
+
+        // take snap shots and store them in transition animator
+         var rectObtained = tableView.rectForRowAtIndexPath(indexPath)
+       // rectObtained = CGRectOffset(rectObtained, 0, 0)
+        
+        
+        
+        let cellBottomPoint = CGPointMake(rectObtained.origin.x, rectObtained.origin.y + rectObtained.size.height)
+        let actualPoint = tableView.convertPoint(cellBottomPoint, toView: self.view)
+        
+        
+        // top frame and bottom frame
+        let topFrame = CGRectMake(0, 0, self.view.frame.size.width, actualPoint.y)
+        let bottomFrame = CGRectMake(0, actualPoint.y, self.view.frame.size.width, self.view.frame.size.height - actualPoint.y)
+        
+        let snapshotTop = self.view.resizableSnapshotViewFromRect(topFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        let snapshotBottom = self.view.resizableSnapshotViewFromRect(bottomFrame, afterScreenUpdates: false, withCapInsets: UIEdgeInsetsZero)
+        
+        
+        pushAnimator.topImageView = snapshotTop
+        pushAnimator.bottomImageView = snapshotBottom
+        pushAnimator.seperationPoint = actualPoint.y
+        
+        // storing them in controller it self, so value can be obtained when popping
+        self.topView = snapshotTop
+        self.bottomView = snapshotBottom
+        self.seperationPoint = actualPoint.y
+        
+        // calculating height of headers of next controller
+        pushAnimator.finalTopYPoint = CGFloat((categoryDetailController.headers.count - 1 )*50 + 50)
+        
+       // categoryDetailController.transitioningDelegate = self
+
+        self.navigationController?.pushViewController(categoryDetailController, animated: true)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -101,4 +151,26 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         return exploreCell
     }
     
+}
+
+
+// MARK: UIViewController Transitioning Delegate
+
+extension ViewController : UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("called in viewcontroller")
+        if operation == UINavigationControllerOperation.Push {
+            pushAnimator.isPush = true
+            return pushAnimator
+        }
+        pushAnimator.isPush = false
+        return pushAnimator
+    }
+    
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("animation controller delegate method called")
+        return pushAnimator
+    }
 }
